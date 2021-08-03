@@ -44,3 +44,25 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+### commitlint [docs](https://github.com/conventional-changelog/commitlint)
+
+when you git commit, you can like this:
+
+1. feat(blog): add comment section
+2. fix(server): send cors headers
+3. chore: run tests on travis ci
+
+Common types according to [commitlint-config-conventional (based on the Angular convention)](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional#type-enum) can be:
+
+1. build
+2. ci
+3. chore
+4. docs
+5. feat
+6. fix
+7. perf
+8. refactor
+9. revert
+10. style
+11. test

@@ -8,8 +8,8 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "jira-dev-tool": "^1.7.61",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -21,14 +21,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server": "json-server mock/db.json --watch --port 3001"
+    "json-server": "json-server mock/db.json --watch --port 3001 --middlewares mock/middleware.js"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest",
       "prettier"
-    ]
+    ],
+    "ignorePatterns": [
+      "mock/db.json",
+      "node_modules",
+      "build"
+    ],
+    "rules": {}
   },
   "browserslist": {
     "production": [
@@ -43,6 +49,9 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/react": "^17.0.15",
     "eslint-config-prettier": "^8.2.0",
     "husky": "^6.0.0",
     "json-server": "^0.16.3",
@@ -51,7 +60,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
